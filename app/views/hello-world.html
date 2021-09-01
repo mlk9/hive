@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>{{ env('APP_NAME') }} - Hello World</title>
     <!-- Bootstrap CSS -->
     <link href="{{ public_dir('css/bootstrap.min.css') }}" rel="stylesheet" >
     <style>
@@ -24,8 +24,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="text-center col-md-12">
-                    <span class="display-1 d-block">Hello World</span>
-                    <div class="mb-4 lead">Hive 1.0.1</div>
+                    <span class="display-1 d-block">{{ env('APP_NAME') }} {{ env('APP_VER') }}</span>
+                    <div class="mb-4 lead">Hello Word :)</div>
                     <a href="https://github.com/mlk9">github</a>
                 </div>
             </div>

@@ -29,7 +29,7 @@ class LauncherApp extends CLI
      */
     protected function setup(Options $options)
     {
-        $options->setHelp("\e[33mWelcome to Hive launcher v1.0.1\e[39m");
+        $options->setHelp("\e[33mWelcome to Hive launcher v1.0.2\e[39m");
 
         $options->registerCommand('start-server', "\e[92mStart Server \e[39m (default:http://localhost:8000)");
         $options->registerArgument('host', "\e[33mChange Host\e[39m", false, 'start-server');
