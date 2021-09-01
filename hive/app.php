@@ -34,15 +34,12 @@ class App
     {
         //Start Session
         session_start();
-
         Request::read();
         //Load .Env
         $dotenv = Dotenv::createImmutable(__DIR__.'/../');
         $dotenv->safeLoad();
         //Load global functions
         require_once __DIR__.'/globals.php';
-
-
 
         //laod database
         Connect::start(env('DB_HOST'), env('DB_NAME'), env('DB_USER'), env('DB_PASS'));
@@ -51,7 +48,7 @@ class App
         View::start();
         //Load global functions
         require_once __DIR__.'/twig/globals.php';
-
+        require_once __DIR__.'/../app/config/functions.php';
 
         //Load controllers
         $dirControllers = __DIR__.'/../app/controllers';
