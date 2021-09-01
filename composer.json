@@ -6,7 +6,7 @@
     "keywords": [
         "framework",
         "hive",
-        "php",
+        "php"
     ],
     "autoload": {
         "psr-4": {
