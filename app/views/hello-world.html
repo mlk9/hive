@@ -1,0 +1,37 @@
+<!-- 
+    this created by Twig you can use its documents
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <!-- Bootstrap CSS -->
+    <link href="{{ public_dir('css/bootstrap.min.css') }}" rel="stylesheet" >
+    <style>
+        body {
+            background: #eeeeee;
+        }
+        .page-wrap {
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-row page-wrap d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="text-center col-md-12">
+                    <span class="display-1 d-block">Hello World</span>
+                    <div class="mb-4 lead">Hive 1.0.1</div>
+                    <a href="https://github.com/mlk9">github</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ public_dir('js/bootstrap.bundle.min.js') }}" ></script>
+</body>
+</html>

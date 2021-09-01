@@ -1,0 +1,22 @@
+{
+    "name": "mlk9/hive",
+    "type": "project",
+    "description": "a simple php freamwork",
+    "license": "MIT",
+    "keywords": [
+        "framework",
+        "hive",
+        "php",
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hive\\": "hive/",
+            "App\\": "app/"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.3",
+        "twig/twig": "^3.0",
+        "splitbrain/php-cli": "^1.1"
+    }
+}

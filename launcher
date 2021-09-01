@@ -1,0 +1,20 @@
+<?php
+
+//======================================================================
+// Hive launcher
+//======================================================================
+
+namespace Hive;
+
+/*
+* require autoload composer file and launcher in the core
+*/
+require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__.'/hive/launcher/launcher.php';
+
+use Hive\Launcher\LauncherApp;
+
+/*
+* starting launcher
+*/
+LauncherApp::start();
