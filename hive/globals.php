@@ -10,7 +10,6 @@ function abort($code=403, $detail='')
     return null;
 }
 
-
 function env($key)
 {
     return $_ENV[$key];
@@ -26,13 +25,11 @@ function cookie($key)
     return $_COOKIE[$key];
 }
 
-
 function redirect($slug)
 {
     return header('Location: '.$slug);
     die();
 }
-
 
 function public_dir($file=null)
 {
@@ -43,7 +40,6 @@ function public_dir($file=null)
     }
 }
 
-
 function arrayFindString($needle, $array)
 {
     foreach ($array as $item) {
@@ -52,4 +48,11 @@ function arrayFindString($needle, $array)
         }
     }
     return false;
+}
+
+function response($code, $data=[])
+{
+    http_response_code($code);
+    header('Content-Type: application/json');
+    return json_encode($data);
 }
