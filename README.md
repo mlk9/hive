@@ -26,7 +26,7 @@ The Hive is a simple php mvc framework .
 
 ```sh
 
-composer require mlk9/hive
+git clone mlk9/hive
 
 ```
 
