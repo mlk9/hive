@@ -33,6 +33,14 @@ Then, install composer :
 composer install
 
 ```
+After that, install compile resources files :
+**you need install npm before : npm i**
+
+```sh
+
+php launcher compile
+
+```
   ------------
 
 **Hive launcher Command Assistant**
