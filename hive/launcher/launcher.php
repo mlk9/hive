@@ -29,7 +29,7 @@ class LauncherApp extends CLI
      */
     protected function setup(Options $options)
     {
-        $options->setHelp("\e[33mWelcome to Hive launcher v1.0.2\e[39m");
+        $options->setHelp("\e[33mWelcome to Hive launcher v1.1.0\e[39m");
 
         $options->registerCommand('start-server', "\e[92mStart Server \e[39m (default:http://localhost:8000)");
         $options->registerArgument('host', "\e[33mChange Host\e[39m", false, 'start-server');
@@ -38,6 +38,8 @@ class LauncherApp extends CLI
         $options->registerCommand('make', "\e[92mMake automatically Models, Controllers \e[39m (example:php launcher make controller <Controller Name>)");
         $options->registerArgument('type', "\e[33mCan be model or controller\e[39m", true, 'make');
         $options->registerArgument('name', "\e[33mFile name or address+name\e[39m", true, 'make');
+
+        $options->registerCommand('compile', "\e[92mCompile your sass-js-css files \e[39m");
 
         // $options->registerCommand('routes', "\e[92mCan see routes list \e[39m");
     }
@@ -59,6 +61,11 @@ class LauncherApp extends CLI
                         $port = isset($options->getArgs()[1]) ? $options->getArgs()[1] : '8000';
                         shell_exec("php -S {$host}:{$port} -t public_html");
                         break;
+                    
+                    case 'compile':
+                        echo "\e[92mStarting Compile \e[39m";
+                        shell_exec("npx webpack build --mode=production");
+                        break;    
 
                     case 'make':
                         switch ($options->getArgs()[0]) {
