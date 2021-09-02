@@ -1,8 +1,7 @@
-<p align="center">
+
   <img src="https://repository-images.githubusercontent.com/401995927/ab3a29d8-34cd-4ae0-be02-cc9b43c9df73" width="400">
 
 # Hive framework
-  </p>
 The Hive is a simple php mvc framework .
   
 ## Information
