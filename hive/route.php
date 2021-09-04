@@ -26,18 +26,17 @@ class Route
     {
         $request = Request::get();
         $thisRoute = ['uri'=>$route,'method'=>$method,'call'=>$call, 'function'=> function () use ($function, $call, $request, $route) {
-            
             $uri = urldecode(
                 parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
             );
-            
+
             $regex = preg_replace(['/\/{([[:word:]]+)}/sm','/\//sm'], ['/([[:word:]]+)','\/'], $route);
             $data = [];
-            
+
             if (!preg_match('/^'.$regex.'(\/|\/\/)$/sm', $uri.'/', $data) && $uri!=$route) {
                 return abort(404);
             }
-            
+
             if (is_null($call)) {
                 switch (count($data)) {
                     case 2:
@@ -125,7 +124,7 @@ class Route
             $regex = preg_replace(['/\/{([[:word:]]+)}/sm','/\//sm'], ['/([[:word:]]+)','\/'], $route['uri']);
             if (($uri == $route['uri'] || ($route['uri']!=$uri && $regex!='\/' && preg_match('/^'.$regex.'(\/|\/\/)$/sm', $uri.'/'))) && ($route['method']=='ANY' || $route['method']==$_SERVER['REQUEST_METHOD'])) {
                 if (is_null($route['call'])) {
-                    print_r(call_user_func(call_user_func($route['function'])));
+                    print_r(call_user_func($route['function']));
                     exit;
                 } else {
                     print_r(call_user_func($route['function']));
@@ -136,13 +135,4 @@ class Route
 
         return abort(404);
     }
-
-    // public static function getList()
-    // {
-    //     print_r(self::$routes);
-    // }
-    // public static function getObject()
-    // {
-    //     return self::$object;
-    // }
 }
