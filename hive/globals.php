@@ -67,3 +67,12 @@ function ___($key)
 {
     return Language::getWord($key);
 }
+
+function back()
+{
+    if(isset($_SERVER['HTTP_REFERER']))
+        return redirect($_SERVER['HTTP_REFERER']);
+    else
+        return redirect('/');
+        
+}

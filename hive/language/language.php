@@ -26,6 +26,7 @@ class Language
     /* select language */
     public static function select($langClass='English')
     {
+        $_SESSION['language'] = $langClass;
         $path = "\\App\\Languages\\{$langClass}Language";
         self::$language = new $path();
         self::$language->phrases();

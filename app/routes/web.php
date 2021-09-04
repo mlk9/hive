@@ -10,3 +10,5 @@ use Hive\Route;
 */
 
 Route::get('/', AppController::class, 'hello_world');
+
+Route::get('/language/{language}', AppController::class, 'lang');

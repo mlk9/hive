@@ -52,7 +52,12 @@ class App
         require_once __DIR__.'/twig/globals.php';
         require_once __DIR__.'/../app/config/functions.php';
 
-        Language::select(env('APP_LANGUAGE'));
+        //load language
+        if(!isset($_SESSION['language']))
+        {
+            $_SESSION['language'] = env('APP_LANGUAGE');
+        }
+        Language::select($_SESSION['language']);
 
         //Load controllers
         $dirControllers = __DIR__.'/../app/controllers';
