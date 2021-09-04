@@ -1,19 +1,23 @@
-<? 
+<?php
 
 namespace App\Languages;
 
-use Hive\LanguageInterface;
+use Hive\Language\LanguageInterface;
 
 class PersianLanguage implements LanguageInterface
 {
+    public $phrases = [];
+    public $words = [];
+
     public function phrases()
     {
         // $data[] = "";
-        self::$data['hello-world'] = "سلام دنیا";
+        $this->phrases['hello_world'] = "سلام دنیا";
+        $this->phrases['github'] = "گیت هاب";
     }
 
     public function words()
     {
-        self::$data['error'] = "خطا";
+        $this->words['error'] = "خطا";
     }
 }

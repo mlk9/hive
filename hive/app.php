@@ -11,7 +11,7 @@ use Hive\Route;
 use Hive\View;
 use Hive\Connect;
 use Hive\Request;
-
+use Hive\Language\Language;
 class App
 {
     protected static $object;
@@ -41,6 +41,8 @@ class App
         //Load global functions
         require_once __DIR__.'/globals.php';
 
+        
+
         //laod database
         Connect::start(env('DB_HOST'), env('DB_NAME'), env('DB_USER'), env('DB_PASS'));
 
@@ -49,6 +51,8 @@ class App
         //Load global functions
         require_once __DIR__.'/twig/globals.php';
         require_once __DIR__.'/../app/config/functions.php';
+
+        Language::select(env('APP_LANGUAGE'));
 
         //Load controllers
         $dirControllers = __DIR__.'/../app/controllers';
@@ -70,6 +74,7 @@ class App
         }
 
         Route::start();
+        
         Connect::close();
     }
 }

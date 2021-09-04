@@ -25,3 +25,13 @@ View::addFunction('redirect', function ($slug) {
 View::addFunction('public_dir', function ($file) {
     return public_dir($file);
 });
+
+
+View::addFunction('__', function ($key,$arguments=[]) {
+    return __($key,$arguments);
+});
+
+
+View::addFunction('___', function ($key) {
+    return _($key);
+});

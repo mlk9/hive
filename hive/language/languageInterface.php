@@ -4,7 +4,7 @@
 // Language Interface
 //======================================================================
 
-namespace Hive;
+namespace Hive\Language;
 
 interface LanguageInterface
 {

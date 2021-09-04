@@ -2,19 +2,24 @@
 
 namespace App\Languages;
 
+use Hive\Language\LanguageInterface;
+
 class EnglishLanguage implements LanguageInterface
 {
+
+    public $phrases = [];
+    public $words = [];
 
     public function phrases()
     {
         // $data[] = "";
-        self::$data['hello-world'] = "Hello World";
+        $this->phrases['hello_world'] = "Hello World";
+        $this->phrases['github'] = "Github";
     }
 
     public function words()
     {
-        // $data[] = "";
-        self::$data['error'] = "error";
+        $this->words['error'] = "error";
     }
 
 }
