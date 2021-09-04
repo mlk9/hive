@@ -16,9 +16,9 @@ The Hive is a simple php mvc framework .
 
 -Twig template
 
--Very simple and small
+-Very Fast, simple and small
 
--Fast
+-Language system
 
 ## Get Quick Start
 
