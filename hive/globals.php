@@ -2,6 +2,7 @@
 
 //just moment
 
+use Hive\Language\Language;
 use Hive\View;
 
 function abort($code=403, $detail='')
@@ -55,4 +56,23 @@ function response($code, $data=[])
     http_response_code($code);
     header('Content-Type: application/json');
     return json_encode($data);
+}
+
+function __($key,$arguments=[])
+{
+    return Language::getPhrase($key,$arguments);
+}
+
+function ___($key)
+{
+    return Language::getWord($key);
+}
+
+function back()
+{
+    if(isset($_SERVER['HTTP_REFERER']))
+        return redirect($_SERVER['HTTP_REFERER']);
+    else
+        return redirect('/');
+        
 }
