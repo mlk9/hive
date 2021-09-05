@@ -17,10 +17,9 @@ class AppController
         return View::render('hello-world.html');
     }
 
-    public function lang($request,$language)
+    public function lang($request, $language)
     {
-        switch($language)
-        {
+        switch ($language) {
             case 'en':
                 Language::select('English');
                 break;
@@ -28,8 +27,7 @@ class AppController
                 Language::select('Persian');
                 break;
         }
-        
+
         return back();
     }
-
 }

@@ -58,9 +58,9 @@ function response($code, $data=[])
     return json_encode($data);
 }
 
-function __($key,$arguments=[])
+function __($key, $arguments=[])
 {
-    return Language::getPhrase($key,$arguments);
+    return Language::getPhrase($key, $arguments);
 }
 
 function ___($key)
@@ -70,9 +70,15 @@ function ___($key)
 
 function back()
 {
-    if(isset($_SERVER['HTTP_REFERER']))
+    if (isset($_SERVER['HTTP_REFERER'])) {
         return redirect($_SERVER['HTTP_REFERER']);
-    else
+    } else {
         return redirect('/');
-        
+    }
+}
+
+function debug($data)
+{
+    header('Content-Type: application/json');
+    die(json_encode($data));
 }
