@@ -12,6 +12,7 @@ use Hive\View;
 use Hive\Connect;
 use Hive\Request;
 use Hive\Language\Language;
+
 class App
 {
     protected static $object;
@@ -41,8 +42,6 @@ class App
         //Load global functions
         require_once __DIR__.'/globals.php';
 
-        
-
         //laod database
         Connect::start(env('DB_HOST'), env('DB_NAME'), env('DB_USER'), env('DB_PASS'));
 
@@ -53,23 +52,11 @@ class App
         require_once __DIR__.'/../app/config/functions.php';
 
         //load language
-        if(!isset($_SESSION['language']))
-        {
+        if (!isset($_SESSION['language'])) {
             $_SESSION['language'] = env('APP_LANGUAGE');
         }
         Language::select($_SESSION['language']);
 
-        //Load controllers
-        $dirControllers = __DIR__.'/../app/controllers';
-        if ($handle = opendir($dirControllers)) {
-            while (false !== ($entry = readdir($handle))) {
-                if ($entry != "." && $entry != ".." && strpos($entry, "Controller.php")>-1) {
-                    require_once $dirControllers.'/'.$entry;
-                }
-            }
-
-            closedir($handle);
-        }
         //Load routes
         foreach (self::$routes as $route) {
             $url = __DIR__.'/../app/routes/'.$route.'.php';
@@ -79,7 +66,7 @@ class App
         }
 
         Route::start();
-        
+
         Connect::close();
     }
 }
