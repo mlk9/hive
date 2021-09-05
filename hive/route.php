@@ -125,10 +125,10 @@ class Route
             if (($uri == $route['uri'] || ($route['uri']!=$uri && $regex!='\/' && preg_match('/^'.$regex.'(\/|\/\/)$/sm', $uri.'/'))) && ($route['method']=='ANY' || $route['method']==$_SERVER['REQUEST_METHOD'])) {
                 if (is_null($route['call'])) {
                     print_r(call_user_func($route['function']));
-                    exit;
+                    return null;
                 } else {
                     print_r(call_user_func($route['function']));
-                    exit;
+                    return null;
                 }
             }
         }
