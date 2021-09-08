@@ -14,6 +14,7 @@ class AppController
     */
     public function hello_world($request)
     {
+        debug($request);
         return View::render('hello-world.html');
     }
 

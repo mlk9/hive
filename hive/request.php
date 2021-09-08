@@ -25,11 +25,16 @@ class Request
     /* read header queries as class */
     public static function read()
     {
+        $other = [
+            'previous' =>  isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null,
+            'system' => $_SERVER['HTTP_USER_AGENT'],
+            'ip' => $_SERVER['REMOTE_ADDR'],
+        ];
         if (isset($_SERVER['QUERY_STRING'])) {
             $query = [];
             parse_str($_SERVER['QUERY_STRING'], $query);
-            self::$query = new Obj($query);
         }
+        self::$query = new Obj(array_merge(['visitor'=>$other],$query));
     }
 
     /* return header queries */
