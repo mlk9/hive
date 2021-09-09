@@ -7,7 +7,7 @@
 namespace Hive;
 
 use Dotenv\Dotenv;
-use Hive\Route;
+use Hive\Route\Route;
 use Hive\View;
 use Hive\Connect;
 use Hive\Request;
@@ -59,9 +59,12 @@ class App
 
         //Load routes
         foreach (self::$routes as $route) {
-            $url = __DIR__.'/../app/routes/'.$route.'.php';
-            if (file_exists($url)) {
-                require_once $url;
+            if(class_exists($route))
+            {
+                $objectRoute = new $route();
+                $objectRoute->register(); 
+            }else{
+                echo "This route not found : {$route}";
             }
         }
 

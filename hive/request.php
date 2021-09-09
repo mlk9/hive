@@ -30,8 +30,8 @@ class Request
             'system' => $_SERVER['HTTP_USER_AGENT'],
             'ip' => $_SERVER['REMOTE_ADDR'],
         ];
-        if (isset($_SERVER['QUERY_STRING'])) {
-            $query = [];
+        $query = [];
+        if (isset($_SERVER['QUERY_STRING'])) {   
             parse_str($_SERVER['QUERY_STRING'], $query);
         }
         self::$query = new Obj(array_merge(['visitor'=>$other],$query));

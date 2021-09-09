@@ -4,7 +4,9 @@
 // Route System
 //======================================================================
 
-namespace Hive;
+namespace Hive\Route;
+
+use Hive\Request;
 
 class Route
 {
