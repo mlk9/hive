@@ -7,21 +7,11 @@
 namespace Hive\Route;
 
 use Hive\Request;
+use Hive\Types\SingletonStaticClass;
 
-class Route
+class Route extends SingletonStaticClass
 {
-    protected static $object;
     protected static $routes = [];
-
-    public static function __callStatic($name, $args)
-    {
-        if (!static::$object) {
-            static::$object = new static();
-        }
-        /* singleton pattern design */
-        return static::$object;
-    }
-
 
     /* add a route to static */
     private static function add($method, $route, $function, $call=null)

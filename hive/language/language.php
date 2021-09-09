@@ -6,22 +6,13 @@
 
 namespace Hive\Language;
 
+use Hive\Types\SingletonStaticClass;
 
-
-class Language
+class Language extends SingletonStaticClass
 {
-    protected static $object;
+
     protected static $PDO =null;
     protected static $language;
-
-    public static function __callStatic($name, $arguments)
-    {
-        if (!static::$object) {
-            static::$object = new static();
-        }
-        /* singleton pattern design */
-        return static::$object;
-    }
 
     /* select language */
     public static function select($langClass='English')

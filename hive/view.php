@@ -6,25 +6,16 @@
 
 namespace Hive;
 
+use Hive\Types\SingletonStaticClass;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 use Twig\TwigFunction;
 
-class View
+class View extends SingletonStaticClass
 {
-    protected static $object;
     protected static $twig;
     protected static $loader;
 
-    public static function __callStatic($name, $args)
-    {
-        if (!static::$object) {
-            static::$object = new static();
-        }
-
-        /* singleton pattern design */
-        return static::$object;
-    }
 
     /* reads views files */
     public static function start()

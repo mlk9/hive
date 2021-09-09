@@ -12,19 +12,11 @@ use Hive\View;
 use Hive\Connect;
 use Hive\Request;
 use Hive\Language\Language;
+use Hive\Types\SingletonStaticClass;
 
-class App
+class App extends SingletonStaticClass
 {
-    protected static $object;
     protected static $routes = [];
-    public static function __callStatic($name, $args)
-    {
-        if (!static::$object) {
-            static::$object = new static();
-        }
-
-        return static::$object;
-    }
 
     public static function addRoutes($name)
     {

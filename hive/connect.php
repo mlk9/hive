@@ -6,23 +6,15 @@
 
 namespace Hive;
 
+use Hive\Types\SingletonStaticClass;
 use PDO;
 use PDOException;
 
-class Connect
+class Connect extends SingletonStaticClass
 {
-    protected static $object;
+    
     protected static $PDO =null;
-
-    public static function __callStatic($name, $arguments)
-    {
-        if (!static::$object) {
-            static::$object = new static();
-        }
-
-        return static::$object;
-    }
-
+    
     public static function start($host, $name, $user, $password)
     {
         try {

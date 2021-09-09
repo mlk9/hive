@@ -7,20 +7,12 @@
 namespace Hive;
 
 use Hive\Obj;
+use Hive\Types\SingletonStaticClass;
 
-class Request
+class Request extends SingletonStaticClass
 {
-    protected static $object;
-    public static $query;
 
-    public static function __callStatic($name, $arguments)
-    {
-        if (!static::$object) {
-            static::$object = new static();
-        }
-        /* singleton pattern design */
-        return static::$object;
-    }
+    public static $query;
 
     /* read header queries as class */
     public static function read()

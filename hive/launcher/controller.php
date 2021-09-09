@@ -2,17 +2,11 @@
 
 namespace Hive\Launcher;
 
-class Controller
-{
-    protected static $object;
-    public static function __callStatic($name, $arguments)
-    {
-        if (!static::$object) {
-            static::$object = new static();
-        }
+use Hive\Types\SingletonStaticClass;
 
-        return static::$object;
-    }
+class Controller extends SingletonStaticClass
+{
+    
 
     public static function boot($name)
     {
