@@ -64,7 +64,7 @@ class App
                 $objectRoute = new $route();
                 $objectRoute->register(); 
             }else{
-                echo "This route not found : {$route}";
+                throw new \Exception("This route not found : {$route}");
             }
         }
 
